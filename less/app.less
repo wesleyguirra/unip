@@ -141,6 +141,9 @@ content {
         }
     }
     .content-thumb {
+        float: left;
+        width: 50%;
+        height: 382.533px;
         box-sizing: border-box;
         display: table;
         position: relative;
@@ -161,7 +164,10 @@ content {
             padding: 25px;
             .thumb-summary--tag {
                 margin: 0 auto;
-                max-width: 139px;
+                max-width: 127px;
+                text {
+                    text-align: center;
+                }
             }
             .thumb-summary--title {
                 display: block;
@@ -169,9 +175,14 @@ content {
                 font-size: 1em;
                 font-weight: 600;
                 h4 {
-                    border-bottom: .2em solid @unip-yellow;
-                    padding-bottom: .5em;
                     display: inline-block;
+                    &:after {
+                        content: '';
+                        display: block;
+                        border-bottom: .2em solid @unip-yellow;
+                        max-width: 115px;
+                        margin: 10px auto;
+                    }
                 }
             }
             .thumb-summary--button {
@@ -203,6 +214,9 @@ content {
                         border-right-color: rgba(255,255,255,1);
                         margin-top: -4px;
                         margin-left: 5px;
+                    }
+                    &:hover {
+                        background: @unip-yellow;
                     } 
                 }
             }
