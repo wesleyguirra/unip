@@ -5,11 +5,11 @@
     border-radius: @radius;
 }
 
-.translateX(@value) {
-    -webkit-transform: translateX(@value);
-    -moz-transform: translateX(@value);
-    -o-transform: translateX(@value);
-    transform: translateX(@value);
+.translate(@x: 0; @y: 0) {
+    -webkit-transform: translate(@x, @y);
+    -moz-transform: translate(@x, @y);
+    -o-transform: translate(@x, @y);
+    transform: translate(@x, @y);
 }
 
 .box-shadow(@offset-x; @offset-y; @blur-radius; @spread-radius; @color) {
