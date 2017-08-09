@@ -14,6 +14,8 @@
 @import url("../node_modules/bootstrap/less/utilities.less");
 @import url("../node_modules/bootstrap/less/navbar.less");
 @import url("../node_modules/bootstrap/less/navs.less");
+@import url("../node_modules/bootstrap/less/jumbotron.less");
+@import url("../node_modules/bootstrap/less/buttons.less");
 
 //Unip
 @import url("colors");
@@ -38,6 +40,9 @@ body {
         height: auto;
         left: 50%;
         .transform(-50%);
+        svg {
+            max-height: 50px;
+        }
         // em telas desktop e acima irá herdar as regras de posicao do Bootstrap
         @media (min-width: @screen-md) {
             position: relative;
@@ -78,108 +83,106 @@ body {
         }
     }
 
-    //ocupa a tela inteira em telas mobile e tablet usando o tamanho da view (vw e vh)
-    .header-menu {
+    .navbar-nav {
         position: absolute;
         top: 0;
+        left: 0;
         margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        min-width: 100vw;
-        margin-left: -25px;
-        padding-top: 50px;
+        padding-top: 70px;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
         background: darken(@unip-primary, 20%);
-        display: none;
-        z-index: 98;
-        .header-menu--item {
-            position: relative;
-            display: block;
-            margin: 0 1em;
+        > li {
+            width: 100%;
+            padding: 15px 10px;
             text-align: center;
-            .transition(@duration: .2s; @timing-function: ease);
-            border: .1em solid transparent;
             a {
-                display: block;
-                color: @unip-primary;
-                .font-style(@font-size: 1.7em; @font-weight: 300);
-                text-decoration: none;
-                padding: 5px 15px;
-            }
-            .menu-item--label {
-                position: absolute;
-                display: none;
-                top: 50%;
-                left: 50%;
-                text-transform: lowercase;
-                .transform(-50%; -50%);
-                .transition(@timing-function: linear; @duration: .2s);
-            }
-            &:focus, &:hover {
-                .menu-item--name {
-                    transform: scale(.5);
-                }
-                .menu-item--label {
-                    display: block;
+                color: @white;
+                &:focus, &:hover {
+                    background: transparent;
                 }
             }
         }
         @media (min-width: @screen-md) {
             position: relative;
-            min-height: 0;
-            min-width: 0;
-            margin: 0;
             padding: 0;
+            width: auto;
+            height: auto;
+            z-index: auto;
             background: transparent;
-            display: inline-block;
-            .header-menu--item {
-                position: relative;
-                display: inline-block;
-                margin: 0 1em;
-                .transition(@duration: .2s; @timing-function: ease);
-                border: .1em solid transparent;
-                a {
-                    display: block;
-                    color: @white;
-                    .font-style(@font-size: 1em);
-                    text-decoration: none;
-                    padding: 5px 15px;
-                }
-                .menu-item--label {
-                    position: absolute;
-                    display: none;
-                    top: 50%;
-                    left: 50%;
-                    text-transform: lowercase;
-                    .transform(-50%; -50%);
-                    .transition(@timing-function: linear; @duration: .2s);
-                }
-                &:focus, &:hover {
-                    .menu-item--name {
-                        transform: none;
-                    }
-                    .menu-item--label {
-                        display: none;
-                    }
-                }
+            > li {
+                width: auto;
             }
         }
     }
 
-    .header-link {
-        z-index: 99;
-        a {
-            display: block;
-            text-decoration: none;
-            color: @white;
-            border: .1em solid @unip-yellow;
-            .font-style(@font-size: .875em);
-            padding: 10px;
-            text-transform: uppercase;
-            span {
-                text-transform: none;
-                .font-style(@font-size: 90%);
-                color: @unip-yellow;
+    .navbar-right {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 15px 0;
+        svg {
+            
+            path:not(#Cordao) {
+                stroke: @white;
+                stroke-width: 1.5px;
+                fill: transparent;
+                stroke-dasharray: 100;
+                stroke-dashoffset: 0;
             }
+        }
+        .navbar-link {
+            display: block;
+            padding: 5px 10px;
+            color: @unip-yellow;
+            span {
+                display: none;
+            }
+        }
+        @media (min-width: @screen-md) {
+            position: relative;
+            .navbar-link {
+                text-decoration: none;
+                span {
+                    display: inline-block;
+                    line-height: normal;
+                    i {
+                        color: @white;
+                        font-style: normal; 
+                    }
+                }
+            }
+        }
+        &:hover, &:focus {
+            path:not(#Cordao) {
+                stroke-dasharray: 100;
+                stroke-dashoffset: 80;
+                animation: drawLine 1.25s ease alternate;
+                animation-fill-mode: forwards;
+            }
+            path#Cordao {
+                animation: hinge 1.25s ease-in-out alternate infinite;
+            }
+        }
+    }
+
+    @keyframes drawLine {
+        to {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 0;
+        }
+    }
+
+    @keyframes hinge {
+        0%, 100% {
+            transform: rotate(6deg);
+            transform-origin: top right;
+        }
+
+        50% {
+            transform: rotate(-1.5deg);
+            transform-origin: top right;
         }
     }
 
@@ -199,6 +202,28 @@ body {
         max-width: 90%;
         margin: 0 auto;
         color: @white;
+        .hero-content--tag {
+            position: relative;
+            margin: 0 auto 30px auto;
+            max-width: 200px;
+            min-height: 36px;
+            svg {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                .transform(-50%; -50%);
+            }
+            .summary-tag--label {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: 100%;
+                text-align: center;
+                .transform(-52%; -57%);
+                .font-style(@font-size: 1.2em);
+                font-style: italic;
+            }
+        }
         .hero-content--title {
             .font-style(@font-weight: 400; @font-size: 3em);
             b {
@@ -285,28 +310,6 @@ content {
             display: table-cell;
             box-sizing: border-box;
             padding: 25px;
-            .thumb-summary--tag {
-                position: relative;
-                margin: 0 auto;
-                max-width: 200px;
-                min-height: 36px;
-                svg {
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    .transform(-50%; -50%);
-                }
-                .summary-tag--label {
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    width: 100%;
-                    text-align: center;
-                    .transform(-50%; -57%);
-                    .font-style(@font-size: .928em);
-                    font-style: italic;
-                }
-            }
             .thumb-summary--title {
                 display: block;
                 text-align: center;
@@ -439,6 +442,29 @@ content {
         }
     }
     
+}
+
+.unip-tag {
+    position: relative;
+    margin: 0 auto;
+    max-width: 200px;
+    min-height: 36px;
+    svg {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        .transform(-50%; -50%);
+    }
+    .tag-label {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        .transform(-50%; -57%);
+        .font-style(@font-size: .928em);
+        font-style: italic;
+    }
 }
 
 .underlined {
