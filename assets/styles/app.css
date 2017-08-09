@@ -3313,7 +3313,7 @@ body {
   pointer-events: none;
 }
 .navbar .header-menu--icon svg path {
-  stroke: #FFFFFF;
+  stroke: #ffffff;
   stroke-width: 3px;
   fill: transparent;
 }
@@ -3335,6 +3335,7 @@ body {
   }
 }
 .navbar .navbar-nav {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -3359,6 +3360,7 @@ body {
 }
 @media (min-width: 992px) {
   .navbar .navbar-nav {
+    display: inline-block;
     position: relative;
     padding: 0;
     width: auto;
@@ -3437,6 +3439,11 @@ body {
 }
 .navbar .header-search {
   position: relative;
+}
+.jumbotron {
+  padding-top: 160px;
+  min-height: 100vh;
+  background-size: cover !important;
 }
 #hero {
   position: relative;
@@ -3726,6 +3733,23 @@ content .content-thumb.full-summary .content-thumb--summary .thumb-summary--perc
   content: '';
   display: block;
   clear: both;
+}
+.btn {
+  border: 0.1em solid #FFED00;
+  border-radius: 0;
+}
+.btn.btn-primary {
+  background: transparent;
+  -webkit-transition: all 0.2s linear 0s;
+  -moz-transition: all 0.2s linear 0s;
+  -o-transition: all 0.2s linear 0s;
+  transition: all 0.2s linear 0s;
+}
+.btn.btn-primary:hover,
+.btn.btn-primary:focus {
+  border-color: transparent;
+  background: #FFED00;
+  color: #274e7c;
 }
 .unip-tag {
   position: relative;

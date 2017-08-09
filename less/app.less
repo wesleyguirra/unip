@@ -59,7 +59,7 @@ body {
         pointer-events: none;
         svg {
             path {
-                stroke: #FFFFFF;
+                stroke: @white;
                 stroke-width: 3px;
                 fill: transparent;
             }
@@ -84,6 +84,7 @@ body {
     }
 
     .navbar-nav {
+        display: none;
         position: absolute;
         top: 0;
         left: 0;
@@ -105,6 +106,7 @@ body {
             }
         }
         @media (min-width: @screen-md) {
+            display: inline-block;
             position: relative;
             padding: 0;
             width: auto;
@@ -190,6 +192,12 @@ body {
         position: relative;
     }
 
+}
+
+.jumbotron {
+    padding-top: 160px;
+    min-height: 100vh;
+    background-size: cover !important;
 }
 
 #hero {
@@ -443,7 +451,19 @@ content {
     }
     
 }
-
+.btn {
+    border: .1em solid @unip-yellow;
+    border-radius: 0;
+    &.btn-primary {
+        background: transparent;
+        .transition(all; .2s; linear);
+        &:hover , &:focus {
+            border-color: transparent;
+            background: @unip-yellow;
+            color: @unip-primary;
+        }
+    }
+}
 .unip-tag {
     position: relative;
     margin: 0 auto;
