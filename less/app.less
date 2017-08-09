@@ -8,7 +8,12 @@
 @import url("../node_modules/bootstrap/less/print.less");
 @import url("../node_modules/bootstrap/less/scaffolding.less");
 @import url("../node_modules/bootstrap/less/grid.less");
+@import url("../node_modules/bootstrap/less/tables.less");
+@import url("../node_modules/bootstrap/less/forms.less");
 @import url("../node_modules/bootstrap/less/responsive-utilities.less");
+@import url("../node_modules/bootstrap/less/utilities.less");
+@import url("../node_modules/bootstrap/less/navbar.less");
+@import url("../node_modules/bootstrap/less/navs.less");
 
 //Unip
 @import url("colors");
@@ -20,47 +25,34 @@ body {
     color: @white;
 }
 
-header {
+// sobrescreve posicao da navbar
+.navbar {
     width: 100%;
     position: absolute;
+    top: 0;
+    z-index: 99;
     border-top: .35em solid @unip-yellow;
-    padding: 10px;
-    // logo centralizado em telas mobile e table
-    .header-brand {
+    // sobrescreve posicao e altura do logo
+    .navbar-brand {
         position: absolute;
+        height: auto;
         left: 50%;
-        z-index: 99;
-        .translate(-50%);
-        svg {
-            max-width: 120px;
-        }
-        // remove centralizado em telas desktop e acima
+        .transform(-50%);
+        // em telas desktop e acima irá herdar as regras de posicao do Bootstrap
         @media (min-width: @screen-md) {
             position: relative;
-            float: left;
-            left: 0;
-            .translate(0,0);
-            svg {
-                max-width: 180px;
-            }
+            left: auto;
+            float: auto;
+            .transform(0);
         }
     }
 
     // icone menu mobile (animacao via js)
     .header-menu--icon {
-        position: absolute;
+        position: relative;
         display: inline-block;
-        width: 30px;
-        height: 30px;
         pointer-events: none;
-        z-index: 99;
         svg {
-            position: absolute;
-            top: -33px;
-            left: -33px;
-            -webkit-transform: scale(0.7);
-	        -ms-transform: scale(0.7);
-	        transform: scale(0.7);
             path {
                 stroke: #FFFFFF;
                 stroke-width: 3px;
@@ -68,10 +60,11 @@ header {
             }
         }
         // botao que dispara acao js
-        .menu-icon--trigger {
-            position: relative;
+        .navbar-toggle {
+            position: absolute;
             width: 100%;
             height: 100%;
+            left: 0;
             cursor: pointer;
             pointer-events: auto;
             background: none;
@@ -118,7 +111,7 @@ header {
                 top: 50%;
                 left: 50%;
                 text-transform: lowercase;
-                .translate(@x: -50%; @y: -50%);
+                .transform(-50%; -50%);
                 .transition(@timing-function: linear; @duration: .2s);
             }
             &:focus, &:hover {
@@ -157,7 +150,7 @@ header {
                     top: 50%;
                     left: 50%;
                     text-transform: lowercase;
-                    .translate(@x: -50%; @y: -50%);
+                    .transform(-50%; -50%);
                     .transition(@timing-function: linear; @duration: .2s);
                 }
                 &:focus, &:hover {
@@ -234,10 +227,9 @@ header {
     .hero-scroll {
         position: absolute;
         z-index: 1;
-        left: 48%;
-        .translate(@x:-50%);
+        left: 50%;
         bottom: -30px;
-        .rotate(45deg);
+        .transform(@x:-50%; @y:0; @deg: 45deg);
         width: 60px;
         height: 60px;
         border: .1em solid @unip-yellow;
@@ -294,10 +286,25 @@ content {
             box-sizing: border-box;
             padding: 25px;
             .thumb-summary--tag {
+                position: relative;
                 margin: 0 auto;
-                max-width: 127px;
-                text {
+                max-width: 200px;
+                min-height: 36px;
+                svg {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    .transform(-50%; -50%);
+                }
+                .summary-tag--label {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    width: 100%;
                     text-align: center;
+                    .transform(-50%; -57%);
+                    .font-style(@font-size: .928em);
+                    font-style: italic;
                 }
             }
             .thumb-summary--title {
@@ -326,7 +333,7 @@ content {
                 .summary-percent--data {
                     position: relative;
                     margin: 0 auto;
-                    max-width: 200px;
+                    max-width: 180px;
                     .percent-data--text {
                         b {
                             display: block;
@@ -337,7 +344,7 @@ content {
                         display: block;
                         top: 50%;
                         left: 50%;
-                        .translate(@x:-50%; @y:-50%);
+                        .translate(-50%; -50%);
                     }
                 }
             }
@@ -357,9 +364,9 @@ content {
                 .span-icon {
                     width: 23px;
                     height: 25px;
-                    .border-radius(100%);
                     border: .1em solid @unip-yellow;
-                    .rotate(45deg);
+                    .border-radius(100%);
+                    .transform(@deg: 45deg);
                     &:after {
                         position: absolute;
                         content: '';

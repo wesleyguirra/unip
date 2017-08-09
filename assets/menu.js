@@ -75,11 +75,10 @@
     segmentA = new Segment(pathA, beginAC, endAC),
     segmentB = new Segment(pathB, beginB, endB),
     segmentC = new Segment(pathC, beginAC, endAC),
-    trigger = document.getElementById('menu-icon-trigger'),
+    trigger = document.getElementById('navbar-toggle'),
     toCloseIcon = true,
     dummy = document.getElementById('dummy'),
-    wrapper = document.getElementById('header-menu--icon'),
-    menu = document.getElementById('header-menu');
+    wrapper = document.getElementById('header-menu--icon')
 
   wrapper.style.visibility = 'visible';
 
