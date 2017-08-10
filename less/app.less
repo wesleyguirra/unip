@@ -44,7 +44,7 @@ body {
         svg {
             max-height: 50px;
         }
-        // em telas desktop e acima irá herdar as regras de posicao do Bootstrap
+        // em telas desktop e acima herda as regras de posicao do Bootstrap
         @media (min-width: @screen-md) {
             position: relative;
             left: auto;
@@ -78,7 +78,7 @@ body {
             margin: 0;
             padding: 0;
         }
-        // esconde menu mobile em telas desktop e acima
+        // esconde botao em telas desktop e acima
         @media (min-width: @screen-md) {
             display: none;
         }
@@ -235,6 +235,8 @@ content {
         position: relative;
         background: lighten(@unip-primary, 10%);
         margin: 10px auto;
+        outline: .15em solid @unip-yellow;
+        outline-offset: -10px;
         .card-content {
             padding: 20px;
             .card-title {
@@ -306,13 +308,6 @@ content {
         display: table-cell;
         position: relative;
         max-width: 50%;
-        @media (min-width: @screen-md) {
-            display: inline-block;
-            max-width: 33%;
-            &:last-child:nth-child(odd):not(:only-of-type) {
-                display: inline-block;
-            }
-        }
         svg {
             width: 100%;
             fill: transparent;
@@ -323,121 +318,69 @@ content {
             left: 50%;
             .transform(-50%; -50%);
         }
+        // força o display block e centraliza o ultimo elemento impar
         &:last-child:nth-child(odd) {
             display: block;
             margin: 0 auto;
         }
+        @media (min-width: @screen-md) {
+            // força o display inline-block em todos os elementos 
+            display: inline-block;
+            max-width: 33%;
+            // exceto quando este for o unico elemento 
+            &:last-child:not(:only-of-type) {
+                display: inline-block;
+            }
+        }
     }
-    // .content-thumb {
-    //     float: left;
-    //     @media (min-width: @screen-md) {
-    //         width: 50%;
-    //     } 
-    //     box-sizing: border-box;
-    //     display: table;
-    //     position: relative;
-    //     background: lighten(@unip-primary, 10%);
-    //     outline: .15em solid @unip-yellow;
-    //     outline-offset: -10px;
-    //     .content-thumb--img {
-    //         display: table-cell;
-    //         width: 50%;
-    //         background-size: cover;
-    //         img {
-    //             max-width: 100%;
-    //         }
-    //     }
-    //     .content-thumb--summary {
-    //         display: table-cell;
-    //         box-sizing: border-box;
-    //         padding: 25px;
-    //         .thumb-summary--title {
-    //             display: block;
-    //             text-align: center;
-    //             .font-style(@font-weight: 600);
-    //             h4 {
-    //                 display: inline-block;
-    //                 &:after {
-    //                     content: '';
-    //                     display: block;
-    //                     border-bottom: .2em solid @unip-yellow;
-    //                     max-width: 115px;
-    //                     margin: 10px auto;
-    //                 }
-    //             }
-    //         }
-    //         .thumb-summary--percent {
-    //             svg {
-    //                 margin: 0 auto;
-    //                 circle {
-    //                     stroke-dashoffset: 0;
-    //                     .transition(@property: stroke-dashoffset; @duration: .5s; @timing-function: linear);
-    //                 }
-    //             }
-    //             .summary-percent--data {
-    //                 position: relative;
-    //                 margin: 0 auto;
-    //                 max-width: 180px;
-    //                 .percent-data--text {
-    //                     b {
-    //                         display: block;
-    //                         .font-style(@font-weight: 600; @font-size: 1.5em);
-    //                     }
-    //                     text-align: center;
-    //                     position: absolute;
-    //                     display: block;
-    //                     top: 50%;
-    //                     left: 50%;
-    //                     .translate(-50%; -50%);
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     &.full-thumb {
-    //         background: rgba(0,0,0,.5);
-    //         outline: none;
-    //         .card-thumb {
-    //             position: absolute;
-    //             display: block;
-    //             width: 100%;
-    //             height: 100%;
-    //             top: 0;
-    //             left: 0;
-    //             z-index: -1;
-    //         }
-    //     }
-    //     &.full-summary {
-    //         .content-thumb--summary {
-    //             .thumb-summary--percent {
-    //                 .summary-percent--data {
-    //                     display: inline-block;
-    //                 }
-    //             }
-    //         }
-    //     }
-    // }
 }
-
-.library-organism {
-    .library-books {
-        .library-books--book {
-            float: left;
-            max-width: 25%;
-            height: 191px;
+.panel-library {
+    position: relative;
+    background: lighten(@unip-primary, 10%);
+    margin: 10px 0;
+    .border-radius(0);
+    outline: .15em solid @unip-yellow;
+    outline-offset: -10px;
+    .library-title {
+        text-align: center;
+    }
+}
+.library {
+    padding: 20px;
+    position: relative;
+    .library-book {
+        float: left;
+        display: table;
+        height: auto;
+        width: 25%;
+        outline-offset: -3px;
+        outline-color: @unip-yellow;
+        .transition(@property: all; @timing-function: ease; @duration: .2s);
+        .book-cover {
+            display: table-cell;
+            max-height: 100%;
+            max-width: 100%;
+            vertical-align: middle;
+            background: @unip-primary;
             img {
                 max-width: 100%;
                 height: 100%;
-                display: block;
             }
         }
-        &:after {
-            content: '';
-            display: block;
-            clear: both;
+        
+        &:hover {
+            position: relative;
+            outline: .15em solid @unip-yellow;
+            outline-offset: -10px;
         }
     }
-    
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
 }
+
 .btn {
     border: .1em solid @unip-yellow;
     border-radius: 0;
@@ -453,6 +396,7 @@ content {
 }
 .tag {
     position: relative;
+    display: block;
     margin: 0 auto;
     max-width: 200px;
     min-height: 36px;
@@ -486,4 +430,11 @@ content {
 	display: inline-flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+}
+
+form {
+    input, button[type=submit] {
+        padding: 10px 15px;
+        border: none;
+    }
 }

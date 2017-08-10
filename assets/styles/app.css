@@ -3840,6 +3840,8 @@ content .card {
   position: relative;
   background: #3366a3;
   margin: 10px auto;
+  outline: 0.15em solid #FFED00;
+  outline-offset: -10px;
 }
 content .card .card-content {
   padding: 20px;
@@ -3924,15 +3926,6 @@ content .svg-data {
   position: relative;
   max-width: 50%;
 }
-@media (min-width: 992px) {
-  content .svg-data {
-    display: inline-block;
-    max-width: 33%;
-  }
-  content .svg-data:last-child:nth-child(odd):not(:only-of-type) {
-    display: inline-block;
-  }
-}
 content .svg-data svg {
   width: 100%;
   fill: transparent;
@@ -3950,19 +3943,64 @@ content .svg-data:last-child:nth-child(odd) {
   display: block;
   margin: 0 auto;
 }
-.library-organism .library-books .library-books--book {
-  float: left;
-  max-width: 25%;
-  height: 191px;
+@media (min-width: 992px) {
+  content .svg-data {
+    display: inline-block;
+    max-width: 33%;
+  }
+  content .svg-data:last-child:not(:only-of-type) {
+    display: inline-block;
+  }
 }
-.library-organism .library-books .library-books--book img {
+.panel-library {
+  position: relative;
+  background: #3366a3;
+  margin: 10px 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  outline: 0.15em solid #FFED00;
+  outline-offset: -10px;
+}
+.panel-library .library-title {
+  text-align: center;
+}
+.library {
+  padding: 20px;
+  position: relative;
+}
+.library .library-book {
+  float: left;
+  display: table;
+  height: auto;
+  width: 25%;
+  outline-offset: -3px;
+  outline-color: #FFED00;
+  -webkit-transition: all 0.2s ease 0s;
+  -moz-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+.library .library-book .book-cover {
+  display: table-cell;
+  max-height: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+  background: #274e7c;
+}
+.library .library-book .book-cover img {
   max-width: 100%;
   height: 100%;
-  display: block;
 }
-.library-organism .library-books:after {
+.library .library-book:hover {
+  position: relative;
+  outline: 0.15em solid #FFED00;
+  outline-offset: -10px;
+}
+.library:after {
   content: '';
-  display: block;
+  display: table;
   clear: both;
 }
 .btn {
@@ -3984,6 +4022,7 @@ content .svg-data:last-child:nth-child(odd) {
 }
 .tag {
   position: relative;
+  display: block;
   margin: 0 auto;
   max-width: 200px;
   min-height: 36px;
@@ -4022,4 +4061,12 @@ content .svg-data:last-child:nth-child(odd) {
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+form {
+  margin: 0 auto;
+}
+form input,
+form button[type=submit] {
+  padding: 10px 15px;
+  border: none;
 }
