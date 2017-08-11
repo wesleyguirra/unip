@@ -3823,37 +3823,37 @@ body {
   border-top: none;
   border-left: none;
 }
-content .content-title {
+.content-title {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   font-size: 2em;
   font-weight: 400;
 }
-content .content-title .content-title--bold {
+.content-title .content-title--bold {
   display: block;
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
   font-weight: 700;
 }
-content .card {
-  width: 100%;
+.card {
+  padding: 0;
   position: relative;
   background: #3366a3;
-  margin: 10px auto;
+  margin: 10px;
   outline: 0.15em solid #FFED00;
   outline-offset: -10px;
 }
-content .card .card-content {
+.card .card-content {
   padding: 20px;
 }
-content .card .card-content .card-title {
+.card .card-content .card-title {
   text-align: center;
 }
-content .card.card-hero {
+.card.card-hero {
   background: rgba(0, 0, 0, 0.5);
   outline: none;
 }
-content .card.card-hero .card-thumb {
+.card.card-hero .card-thumb {
   background-size: cover;
   position: absolute;
   display: block;
@@ -3864,29 +3864,29 @@ content .card.card-hero .card-thumb {
   z-index: -1;
 }
 @media (min-width: 992px) {
-  content .card {
+  .card {
     margin: 0;
     display: table;
   }
-  content .card .card-thumb {
+  .card .card-thumb {
     display: table-cell;
     width: 50%;
     background-size: cover;
   }
-  content .card .card-thumb img {
+  .card .card-thumb img {
     max-width: 100%;
   }
 }
-content .svg-data {
+.svg-data {
   display: table-cell;
   position: relative;
   max-width: 50%;
 }
-content .svg-data svg {
+.svg-data svg {
   width: 100%;
   fill: transparent;
 }
-content .svg-data .svg-text {
+.svg-data .svg-text {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -3895,29 +3895,35 @@ content .svg-data .svg-text {
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-content .svg-data:last-child:nth-child(odd) {
+.svg-data:last-child:nth-child(odd) {
   display: block;
   margin: 0 auto;
 }
 @media (min-width: 992px) {
-  content .svg-data {
+  .svg-data {
     display: inline-block;
     max-width: 33%;
   }
-  content .svg-data:last-child:not(:only-of-type) {
+  .svg-data:last-child:not(:only-of-type) {
     display: inline-block;
   }
 }
 .panel-library {
   position: relative;
   background: #3366a3;
-  margin: 10px 0;
+  margin: 10px;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -o-border-radius: 0;
   border-radius: 0;
   outline: 0.15em solid #FFED00;
   outline-offset: -10px;
+}
+@media (min-width: 992px) {
+  .panel-library {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 .panel-library .library-title {
   text-align: center;
@@ -3929,9 +3935,7 @@ content .svg-data:last-child:nth-child(odd) {
 .library .library-book {
   float: left;
   display: table;
-  height: auto;
   width: 25%;
-  outline-offset: -3px;
   outline-color: #FFED00;
   -webkit-transition: all 0.2s ease 0s;
   -moz-transition: all 0.2s ease 0s;
@@ -3946,11 +3950,15 @@ content .svg-data:last-child:nth-child(odd) {
   background: #274e7c;
 }
 .library .library-book .book-cover img {
+  height: 100px;
   max-width: 100%;
-  height: 100%;
+}
+@media (min-width: 992px) {
+  .library .library-book .book-cover img {
+    height: 180px;
+  }
 }
 .library .library-book:hover {
-  position: relative;
   outline: 0.15em solid #FFED00;
   outline-offset: -10px;
 }
@@ -4013,11 +4021,6 @@ content .svg-data:last-child:nth-child(odd) {
 .highlighted {
   color: #FFED00;
 }
-.thumb-organism {
-  display: inline-flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
 form {
   max-width: 100%;
   margin: auto;
@@ -4070,10 +4073,17 @@ form button[type=submit] {
   transform: translate(-50%, -50%) rotate(45deg);
 }
 .video-intro {
+  margin: 10px;
   background: #3366a3;
   padding: 20px;
   outline: 0.15em solid #FFED00;
   outline-offset: -10px;
+}
+@media (min-width: 992px) {
+  .video-intro {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 .video-intro .video-play {
   max-width: 110px;
@@ -4088,9 +4098,6 @@ form button[type=submit] {
   border-radius: inherit;
   stroke-width: .1em;
   stroke: #FFED00;
-}
-.video-intro .video-action {
-  display: block;
 }
 .action-link {
   display: block;

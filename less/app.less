@@ -221,90 +221,92 @@ body {
     }
 }
 
-content {
-    .content-title {
-        text-align: center;
-        .font-style(@font-weight: 400; @font-size: 2em);
-        .content-title--bold {
-            display: block;
-            .font-style(@font-weight: 700);
+.content-title {
+    text-align: center;
+    .font-style(@font-weight: 400; @font-size: 2em);
+    .content-title--bold {
+        display: block;
+        .font-style(@font-weight: 700);
+    }
+}
+.card {
+    padding: 0;
+    position: relative;
+    background: lighten(@unip-primary, 10%);
+    margin: 10px;
+    outline: .15em solid @unip-yellow;
+    outline-offset: -10px;
+    .card-content {
+        padding: 20px;
+        .card-title {
+            text-align: center;
         }
     }
-    .card {
-        width: 100%;
-        position: relative;
-        background: lighten(@unip-primary, 10%);
-        margin: 10px auto;
-        outline: .15em solid @unip-yellow;
-        outline-offset: -10px;
-        .card-content {
-            padding: 20px;
-            .card-title {
-                text-align: center;
-            }
-        }
-        &.card-hero {
-            background: rgba(0,0,0,.5);
-            outline: none;
-            .card-thumb {
-                background-size: cover;
-                position: absolute;
-                display: block;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                z-index: -1;
-            }
-        }
-        @media (min-width: @screen-md) {
-            margin: 0;
-            display: table;
-            .card-thumb {
-                display: table-cell;
-                width: 50%;
-                background-size: cover;
-                img {
-                    max-width: 100%;
-                }
-            }
-        }
-    }
-
-    .svg-data {
-        display: table-cell;
-        position: relative;
-        max-width: 50%;
-        svg {
-            width: 100%;
-            fill: transparent;
-        }
-        .svg-text {
+    &.card-hero {
+        background: rgba(0,0,0,.5);
+        outline: none;
+        .card-thumb {
+            background-size: cover;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            .transform(-50%; -50%);
-        }
-        // força o display block e centraliza o ultimo elemento impar
-        &:last-child:nth-child(odd) {
             display: block;
-            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
         }
-        @media (min-width: @screen-md) {
-            // força o display inline-block em todos os elementos 
-            display: inline-block;
-            max-width: 33%;
-            // exceto quando este for o unico elemento 
-            &:last-child:not(:only-of-type) {
-                display: inline-block;
+    }
+    @media (min-width: @screen-md) {
+        margin: 0;
+        display: table;
+        .card-thumb {
+            display: table-cell;
+            width: 50%;
+            background-size: cover;
+            img {
+                max-width: 100%;
             }
+        }
+    }
+}
+
+.svg-data {
+    display: table-cell;
+    position: relative;
+    max-width: 50%;
+    svg {
+        width: 100%;
+        fill: transparent;
+    }
+    .svg-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        .transform(-50%; -50%);
+    }
+    // força o display block e centraliza o ultimo elemento impar
+    &:last-child:nth-child(odd) {
+        display: block;
+        margin: 0 auto;
+    }
+    @media (min-width: @screen-md) {
+        // força o display inline-block em todos os elementos 
+        display: inline-block;
+        max-width: 33%;
+        // exceto quando este for o unico elemento 
+        &:last-child:not(:only-of-type) {
+            display: inline-block;
         }
     }
 }
 .panel-library {
     position: relative;
     background: lighten(@unip-primary, 10%);
-    margin: 10px 0;
+    margin: 10px;
+    @media (min-width: @screen-md) {
+        margin-left: auto;
+        margin-right: auto;
+    }
     .border-radius(0);
     outline: .15em solid @unip-yellow;
     outline-offset: -10px;
@@ -318,9 +320,7 @@ content {
     .library-book {
         float: left;
         display: table;
-        height: auto;
         width: 25%;
-        outline-offset: -3px;
         outline-color: @unip-yellow;
         .transition(@property: all; @timing-function: ease; @duration: .2s);
         .book-cover {
@@ -330,13 +330,15 @@ content {
             vertical-align: middle;
             background: @unip-primary;
             img {
+                height: 100px;
+                @media (min-width: @screen-md) {
+                    height: 180px;
+                }
                 max-width: 100%;
-                height: 100%;
             }
         }
         
         &:hover {
-            position: relative;
             outline: .15em solid @unip-yellow;
             outline-offset: -10px;
         }
@@ -393,12 +395,6 @@ content {
     color: @unip-yellow;
 }
 
-.thumb-organism {
-	display: inline-flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-}
-
 form {
     max-width: 100%;
     margin: auto;
@@ -442,10 +438,15 @@ form {
 }
 
 .video-intro {
+    margin: 10px;
     background: lighten(@unip-primary, 10%);
     padding: 20px;
     outline: .15em solid @unip-yellow;
     outline-offset: -10px;
+    @media (min-width: @screen-md) {
+        margin-left: auto;
+        margin-right: auto;
+    }
     .video-play {
         max-width: 110px;
         margin: 30px auto;
