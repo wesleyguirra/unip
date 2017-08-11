@@ -3636,10 +3636,12 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
   -o-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
 }
 .navbar .navbar-brand svg {
+  fill: #FFED00;
   max-height: 50px;
 }
 @media (min-width: 992px) {
@@ -3649,6 +3651,7 @@ body {
     float: auto;
     -webkit-transform: translate(0, 0);
     -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
     -o-transform: translate(0, 0);
     transform: translate(0, 0);
   }
@@ -3724,13 +3727,6 @@ body {
   top: 0;
   padding: 15px 0;
 }
-.navbar .navbar-right svg path:not(#Cordao) {
-  stroke: #ffffff;
-  stroke-width: 1.5px;
-  fill: transparent;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 0;
-}
 .navbar .navbar-right .navbar-link {
   display: block;
   padding: 5px 10px;
@@ -3739,6 +3735,88 @@ body {
 }
 .navbar .navbar-right .navbar-link span {
   display: none;
+}
+.navbar .navbar-right .navbar-link path:not(#Cordao) {
+  stroke: #ffffff;
+  stroke-width: 1.5px;
+  fill: transparent;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+}
+.navbar .navbar-right .navbar-link path#Cordao {
+  fill: #FFED00;
+}
+.navbar .navbar-right .navbar-link:hover :not(#Cordao),
+.navbar .navbar-right .navbar-link:focus :not(#Cordao) {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 80;
+  -webkit-animation-name: drawLine;
+  -webkit-animation-duration: 1.25s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-play-state: running;
+  -moz-animation-name: drawLine;
+  -moz-animation-duration: 1.25s;
+  -moz-animation-timing-function: ease;
+  -moz-animation-delay: 0s;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-direction: alternate;
+  -moz-animation-fill-mode: forwards;
+  -moz-animation-play-state: running;
+  -o-animation-name: drawLine;
+  -o-animation-duration: 1.25s;
+  -o-animation-timing-function: ease;
+  -o-animation-delay: 0s;
+  -o-animation-iteration-count: 1;
+  -o-animation-direction: alternate;
+  -o-animation-fill-mode: forwards;
+  -o-animation-play-state: running;
+  animation-name: drawLine;
+  animation-duration: 1.25s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+.navbar .navbar-right .navbar-link:hover #Cordao,
+.navbar .navbar-right .navbar-link:focus #Cordao {
+  -webkit-animation-name: pendulum;
+  -webkit-animation-duration: 1.25s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-fill-mode: none;
+  -webkit-animation-play-state: running;
+  -moz-animation-name: pendulum;
+  -moz-animation-duration: 1.25s;
+  -moz-animation-timing-function: ease-in-out;
+  -moz-animation-delay: 0s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: alternate;
+  -moz-animation-fill-mode: none;
+  -moz-animation-play-state: running;
+  -o-animation-name: pendulum;
+  -o-animation-duration: 1.25s;
+  -o-animation-timing-function: ease-in-out;
+  -o-animation-delay: 0s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-direction: alternate;
+  -o-animation-fill-mode: none;
+  -o-animation-play-state: running;
+  animation-name: pendulum;
+  animation-duration: 1.25s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: none;
+  animation-play-state: running;
 }
 @media (min-width: 992px) {
   .navbar .navbar-right {
@@ -3753,18 +3831,20 @@ body {
     font-style: normal;
   }
 }
-.navbar .navbar-right:hover path:not(#Cordao),
-.navbar .navbar-right:focus path:not(#Cordao) {
-  stroke-dasharray: 100;
-  stroke-dashoffset: 80;
-  animation: drawLine 1.25s ease alternate;
-  animation-fill-mode: forwards;
-}
-.navbar .navbar-right:hover path#Cordao,
-.navbar .navbar-right:focus path#Cordao {
-  animation: pendulum 1.25s ease-in-out alternate infinite;
-}
 @keyframes drawLine {
+  to {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0), 0 0 10px 10px rgba(255, 255, 255, 0), 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+}
+@-webkit-keyframes drawLine {
+  to {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+  }
+}
+@-moz-keyframes drawLine {
   to {
     stroke-dasharray: 100;
     stroke-dashoffset: 0;
@@ -3773,18 +3853,98 @@ body {
 @keyframes pendulum {
   0%,
   100% {
-    transform: rotate(6deg);
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0) rotate(6deg);
+    -moz-transform: translate(0, 0) rotate(6deg);
+    -ms-transform: translate(0, 0) rotate(6deg);
+    -o-transform: translate(0, 0) rotate(6deg);
+    transform: translate(0, 0) rotate(6deg);
+    transform-origin: top right;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0), 0 0 10px 10px rgba(255, 255, 255, 0), 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+  50% {
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0) rotate(-1.5deg);
+    -moz-transform: translate(0, 0) rotate(-1.5deg);
+    -ms-transform: translate(0, 0) rotate(-1.5deg);
+    -o-transform: translate(0, 0) rotate(-1.5deg);
+    transform: translate(0, 0) rotate(-1.5deg);
+    transform-origin: top right;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0), 0 0 10px 10px rgba(255, 255, 255, 0), 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+}
+@-webkit-keyframes pendulum {
+  0%,
+  100% {
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0) rotate(6deg);
+    -moz-transform: translate(0, 0) rotate(6deg);
+    -ms-transform: translate(0, 0) rotate(6deg);
+    -o-transform: translate(0, 0) rotate(6deg);
+    transform: translate(0, 0) rotate(6deg);
     transform-origin: top right;
   }
   50% {
-    transform: rotate(-1.5deg);
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0) rotate(-1.5deg);
+    -moz-transform: translate(0, 0) rotate(-1.5deg);
+    -ms-transform: translate(0, 0) rotate(-1.5deg);
+    -o-transform: translate(0, 0) rotate(-1.5deg);
+    transform: translate(0, 0) rotate(-1.5deg);
+    transform-origin: top right;
+  }
+}
+@-moz-keyframes pendulum {
+  0%,
+  100% {
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0) rotate(6deg);
+    -moz-transform: translate(0, 0) rotate(6deg);
+    -ms-transform: translate(0, 0) rotate(6deg);
+    -o-transform: translate(0, 0) rotate(6deg);
+    transform: translate(0, 0) rotate(6deg);
+    transform-origin: top right;
+  }
+  50% {
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0) rotate(-1.5deg);
+    -moz-transform: translate(0, 0) rotate(-1.5deg);
+    -ms-transform: translate(0, 0) rotate(-1.5deg);
+    -o-transform: translate(0, 0) rotate(-1.5deg);
+    transform: translate(0, 0) rotate(-1.5deg);
     transform-origin: top right;
   }
 }
 #hero {
   padding-top: 160px;
   min-height: 100vh;
+  background-blend-mode: soft-light;
   background-size: cover !important;
+  background-color: #274e7c !important;
 }
 #hero .hero-scroll {
   position: absolute;
@@ -3801,10 +3961,12 @@ body {
   border-radius: 100%;
   -webkit-transform: translate(-50%, 0);
   -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
   -o-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
   -webkit-transform: translate(-50%, 0) rotate(45deg);
   -moz-transform: translate(-50%, 0) rotate(45deg);
+  -ms-transform: translate(-50%, 0) rotate(45deg);
   -o-transform: translate(-50%, 0) rotate(45deg);
   transform: translate(-50%, 0) rotate(45deg);
   -webkit-box-shadow: 0px 0px 0px 7px #274e7c;
@@ -3844,6 +4006,7 @@ body {
   outline-offset: -10px;
 }
 .card .card-content {
+  box-sizing: content-box;
   padding: 20px;
 }
 .card .card-content .card-title {
@@ -3886,12 +4049,16 @@ body {
   width: 100%;
   fill: transparent;
 }
+.svg-data svg circle:nth-child(2) {
+  stroke: #FFED00;
+}
 .svg-data .svg-text {
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
@@ -3929,7 +4096,7 @@ body {
   text-align: center;
 }
 .library {
-  padding: 20px;
+  padding: 20px 0;
   position: relative;
 }
 .library .library-book {
@@ -3952,6 +4119,8 @@ body {
 .library .library-book .book-cover img {
   height: 100px;
   max-width: 100%;
+  margin: 0 auto;
+  display: block;
 }
 @media (min-width: 992px) {
   .library .library-book .book-cover img {
@@ -3995,8 +4164,10 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
+  fill: #FFED00;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
@@ -4006,10 +4177,11 @@ body {
   top: 50%;
   width: 100%;
   text-align: center;
-  -webkit-transform: translate(-50%, -57%);
-  -moz-transform: translate(-50%, -57%);
-  -o-transform: translate(-50%, -57%);
-  transform: translate(-50%, -57%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   font-family: 'Open Sans', sans-serif;
   font-size: 0.928em;
   font-weight: 400;
@@ -4065,10 +4237,12 @@ form button[type=submit] {
   border-bottom-color: transparent;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%) rotate(45deg);
   -moz-transform: translate(-50%, -50%) rotate(45deg);
+  -ms-transform: translate(-50%, -50%) rotate(45deg);
   -o-transform: translate(-50%, -50%) rotate(45deg);
   transform: translate(-50%, -50%) rotate(45deg);
 }
@@ -4111,4 +4285,11 @@ form button[type=submit] {
   display: inline-block;
   line-height: normal;
   vertical-align: middle;
+}
+.action-link *:last-child {
+  margin-left: 5px;
+}
+.action-link:hover {
+  color: #ffffff;
+  text-decoration: none;
 }

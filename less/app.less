@@ -42,6 +42,7 @@ body {
         left: 50%;
         .transform(-50%);
         svg {
+            fill: @unip-yellow;
             max-height: 50px;
         }
         // em telas desktop e acima herda as regras de posicao do Bootstrap
@@ -126,15 +127,6 @@ body {
         right: 0;
         top: 0;
         padding: 15px 0;
-        svg {
-            path:not(#Cordao) {
-                stroke: @white;
-                stroke-width: 1.5px;
-                fill: transparent;
-                stroke-dasharray: 100;
-                stroke-dashoffset: 0;
-            }
-        }
         .navbar-link {
             display: block;
             padding: 5px 10px;
@@ -142,6 +134,28 @@ body {
             text-decoration: none;
             span {
                 display: none;
+            }
+            path:not(#Cordao) {
+                stroke: @white;
+                stroke-width: 1.5px;
+                fill: transparent;
+                stroke-dasharray: 100;
+                stroke-dashoffset: 0;
+            }
+            path#Cordao {
+                fill: @unip-yellow;
+            }
+            &:hover, &:focus {
+                :not(#Cordao) {
+                    // animacao topo e carneira do icone cappelo
+                    stroke-dasharray: 100;
+                    stroke-dashoffset: 80;
+                    .animation(@animation-name: drawLine; @animation-duration: 1.25s; @animation-timing-function: ease; @animation-direction: alternate; @animation-fill-mode: forwards);
+                }
+                #Cordao {
+                    // animacao cordao do icone cappelo
+                    .animation(@animation-name: pendulum; @animation-duration: 1.25s; @animation-timing-function: ease-in-out; @animation-iteration-count: infinite; @animation-direction: alternate;);
+                }
             }
         }
         @media (min-width: @screen-md) {
@@ -157,22 +171,23 @@ body {
                 }
             }
         }
-        &:hover, &:focus {
-            path:not(#Cordao) {
-                // animacao topo e carneira do icone cappelo
-                stroke-dasharray: 100;
-                stroke-dashoffset: 80;
-                animation: drawLine 1.25s ease alternate;
-                animation-fill-mode: forwards;
-            }
-            path#Cordao {
-                // animacao cordao do icone cappelo
-                animation: pendulum 1.25s ease-in-out alternate infinite;
-            }
-        }
+        
     }
 
     @keyframes drawLine {
+        to {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 0;
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0), 0 0 10px 10px rgba(255, 255, 255, 0), 0 0 0 10px rgba(255, 255, 255, 0);
+        }
+    }
+    @-webkit-keyframes drawLine {
+        to {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 0;
+        }
+    }
+    @-moz-keyframes drawLine {
         to {
             stroke-dasharray: 100;
             stroke-dashoffset: 0;
@@ -180,12 +195,36 @@ body {
     }
     @keyframes pendulum {
         0%, 100% {
-            transform: rotate(6deg);
+            .transform(@deg: 6deg);
+            transform-origin: top right;
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0), 0 0 10px 10px rgba(255, 255, 255, 0), 0 0 0 10px rgba(255, 255, 255, 0);
+        }
+
+        50% {
+            .transform(@deg: -1.5deg);
+            transform-origin: top right;
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0), 0 0 10px 10px rgba(255, 255, 255, 0), 0 0 0 10px rgba(255, 255, 255, 0);
+        }
+    }
+    @-webkit-keyframes pendulum {
+        0%, 100% {
+            .transform(@deg: 6deg);
             transform-origin: top right;
         }
 
         50% {
-            transform: rotate(-1.5deg);
+            .transform(@deg: -1.5deg);
+            transform-origin: top right;
+        }
+    }
+    @-moz-keyframes pendulum {
+        0%, 100% {
+            .transform(@deg: 6deg);
+            transform-origin: top right;
+        }
+
+        50% {
+            .transform(@deg: -1.5deg);
             transform-origin: top right;
         }
     }
@@ -194,7 +233,10 @@ body {
 #hero {
     padding-top: 160px;
     min-height: 100vh;
-    background-size: cover !important;
+    background-blend-mode: soft-light;
+    // important necessario devido a background aplicado inline
+    background-size: cover !important; 
+    background-color: @unip-primary !important;
     .hero-scroll {
         position: absolute;
         z-index: 1;
@@ -237,6 +279,7 @@ body {
     outline: .15em solid @unip-yellow;
     outline-offset: -10px;
     .card-content {
+        box-sizing: content-box;
         padding: 20px;
         .card-title {
             text-align: center;
@@ -277,6 +320,9 @@ body {
     svg {
         width: 100%;
         fill: transparent;
+        circle:nth-child(2) {
+            stroke: @unip-yellow;
+        }
     }
     .svg-text {
         position: absolute;
@@ -315,7 +361,7 @@ body {
     }
 }
 .library {
-    padding: 20px;
+    padding: 20px 0;
     position: relative;
     .library-book {
         float: left;
@@ -335,6 +381,8 @@ body {
                     height: 180px;
                 }
                 max-width: 100%;
+                margin: 0 auto;
+                display: block;
             }
         }
         
@@ -373,6 +421,7 @@ body {
         position: absolute;
         left: 50%;
         top: 50%;
+        fill: @unip-yellow;
         .transform(-50%; -50%);
     }
     .tag-label {
@@ -381,7 +430,7 @@ body {
         top: 50%;
         width: 100%;
         text-align: center;
-        .transform(-50%; -57%);
+        .transform(-50%; -50%);
         .font-style(@font-size: .928em);
         font-style: italic;
     }
@@ -473,6 +522,13 @@ form {
     * {
         display: inline-block;
         line-height: normal;
-        vertical-align: middle;              
+        vertical-align: middle;    
+        &:last-child {
+            margin-left: 5px;
+        }          
+    }
+    &:hover {
+        color: @white;
+        text-decoration: none;
     }
 }
