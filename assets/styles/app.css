@@ -3849,50 +3849,6 @@ content .card .card-content {
 content .card .card-content .card-title {
   text-align: center;
 }
-content .card .card-action {
-  display: block;
-  padding: 20px;
-  line-height: 20px;
-  color: #ffffff;
-  text-decoration: none;
-  text-align: center;
-}
-content .card .card-action span,
-content .card .card-action i {
-  display: inline-block;
-  line-height: normal;
-  vertical-align: middle;
-}
-content .card .card-action i {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  border: .1em solid;
-  border-color: #FFED00;
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  -o-border-radius: 100%;
-  border-radius: 100%;
-}
-content .card .card-action i:after {
-  content: '';
-  position: absolute;
-  border: .1em solid;
-  top: 50%;
-  left: 50%;
-  width: 7px;
-  height: 7px;
-  border-left-color: transparent;
-  border-bottom-color: transparent;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%) rotate(45deg);
-  -moz-transform: translate(-50%, -50%) rotate(45deg);
-  -o-transform: translate(-50%, -50%) rotate(45deg);
-  transform: translate(-50%, -50%) rotate(45deg);
-}
 content .card.card-hero {
   background: rgba(0, 0, 0, 0.5);
   outline: none;
@@ -4063,10 +4019,89 @@ content .svg-data:last-child:nth-child(odd) {
   flex-wrap: wrap;
 }
 form {
-  margin: 0 auto;
+  max-width: 100%;
+  margin: auto;
 }
 form input,
 form button[type=submit] {
+  display: inline-block;
   padding: 10px 15px;
   border: none;
+}
+form input:not([type=submit]) {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #3366a3;
+}
+form button[type=submit] {
+  background-color: #1b3655;
+  height: 44px;
+}
+.action-icon {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: .1em solid;
+  border-color: #FFED00;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -o-border-radius: 100%;
+  border-radius: 100%;
+}
+.action-icon:after {
+  content: '';
+  position: absolute;
+  border: .1em solid;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  -moz-transform: translate(-50%, -50%) rotate(45deg);
+  -o-transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.video-intro {
+  background: #3366a3;
+  padding: 20px;
+  outline: 0.15em solid #FFED00;
+  outline-offset: -10px;
+}
+.video-intro .video-play {
+  max-width: 110px;
+  margin: 30px auto;
+  display: block;
+  border-radius: 100%;
+  background: #1b3655;
+  padding: 5px;
+}
+.video-intro .video-play svg {
+  border: 0.1em solid #ffffff;
+  border-radius: inherit;
+  stroke-width: .1em;
+  stroke: #FFED00;
+}
+.video-intro .video-action {
+  display: block;
+}
+.action-link {
+  display: block;
+  padding: 20px;
+  line-height: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+}
+.action-link * {
+  display: inline-block;
+  line-height: normal;
+  vertical-align: middle;
 }

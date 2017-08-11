@@ -243,39 +243,6 @@ content {
                 text-align: center;
             }
         }
-        .card-action {
-            display: block;
-            padding: 20px;
-            line-height: 20px;
-            color: @white;
-            text-decoration: none;
-            text-align: center;
-            span, i {
-                display: inline-block;
-                line-height: normal;
-                vertical-align: middle;              
-            }
-            i {
-                position: relative;
-                width: 20px;
-                height: 20px;
-                border: .1em solid;
-                border-color: @unip-yellow;
-                .border-radius(100%);
-                &:after {
-                    content: '';
-                    position: absolute;
-                    border: .1em solid;
-                    top: 50%;
-                    left: 50%;
-                    width: 7px;
-                    height: 7px;
-                    border-left-color: transparent;
-                    border-bottom-color: transparent;
-                    .transform(-50%; @y: -50%; @deg: 45deg);
-                }
-            }
-        }
         &.card-hero {
             background: rgba(0,0,0,.5);
             outline: none;
@@ -433,8 +400,78 @@ content {
 }
 
 form {
+    max-width: 100%;
+    margin: auto;
     input, button[type=submit] {
+        display: inline-block;
         padding: 10px 15px;
         border: none;
+    }
+
+    input:not([type=submit]) {
+        .font-style(@font-size: 1.2em);
+        color: lighten(@unip-primary, 10%);
+    }
+
+    button[type=submit] {
+        background-color: darken(@unip-primary, 10%);
+        height: 44px;
+    }
+}
+
+.action-icon {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: .1em solid;
+    border-color: @unip-yellow;
+    .border-radius(100%);
+    &:after {
+        content: '';
+        position: absolute;
+        border: .1em solid;
+        top: 50%;
+        left: 50%;
+        width: 7px;
+        height: 7px;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        .transform(-50%; @y: -50%; @deg: 45deg);
+    }
+}
+
+.video-intro {
+    background: lighten(@unip-primary, 10%);
+    padding: 20px;
+    outline: .15em solid @unip-yellow;
+    outline-offset: -10px;
+    .video-play {
+        max-width: 110px;
+        margin: 30px auto;
+        display: block;
+        border-radius: 100%;
+        background: darken(@unip-primary, 10%);
+        padding: 5px;
+        svg {
+            border: .1em solid @white;
+            border-radius: inherit;
+            stroke-width: .1em;
+            stroke: @unip-yellow;
+        }
+    }
+}
+
+.action-link {
+    display: block;
+    padding: 20px;
+    line-height: 20px;
+    color: @white;
+    text-decoration: none;
+    text-align: center;
+    * {
+        display: inline-block;
+        line-height: normal;
+        vertical-align: middle;              
     }
 }
