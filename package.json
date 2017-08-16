@@ -15,5 +15,8 @@
     "jit-grunt": "^0.10.0",
     "less": "^2.7.2",
     "typescript": "^2.4.2"
+  },
+  "dependencies": {
+    "jquery-match-height": "^0.7.2"
   }
 }

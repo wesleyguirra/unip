@@ -15,6 +15,15 @@
         z-index: 1;
         width: 100%;
         .transform(@y: -50%);
+        .hero-logo {
+            max-width: 280px;
+            @media (min-width: @screen-md) {
+                max-width: 500px;
+            }
+            display: block;
+            margin: 0 auto;
+            opacity: .6;
+        }
     }
     .hero-scroll {
         position: absolute;
@@ -38,22 +47,6 @@
             border: .1em solid @white;
             border-top: none;
             border-left: none;
-        }
-    }
-}
-
-.is-home {
-    #hero {
-        .hero-image {
-             &:after {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background: fade(@unip-primary, 70%);
-            }
         }
     }
 }

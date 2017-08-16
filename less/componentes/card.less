@@ -15,26 +15,30 @@
     &.card-hero {
         background: rgba(0,0,0,.5);
         outline: none;
-        .card-thumb {
-            background-size: cover;
-            position: absolute;
-            display: block;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
+        .card-box {
+            .card-thumb {
+                background-size: cover;
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
         }
     }
     @media (min-width: @screen-md) {
         margin: 0;
-        display: table;
-        .card-thumb {
-            display: table-cell;
-            width: 50%;
-            background-size: cover;
-            img {
-                max-width: 100%;
+        .card-box {
+            display: table;
+            .card-thumb {
+                display: table-cell;
+                width: 50%;
+                background-size: cover;
+                img {
+                    max-width: 100%;
+                }
             }
         }
     }

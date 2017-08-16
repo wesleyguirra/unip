@@ -3813,7 +3813,7 @@ input[type="button"].btn-block {
   background: rgba(0, 0, 0, 0.5);
   outline: none;
 }
-.card.card-hero .card-thumb {
+.card.card-hero .card-box .card-thumb {
   background-size: cover;
   position: absolute;
   display: block;
@@ -3826,14 +3826,16 @@ input[type="button"].btn-block {
 @media (min-width: 992px) {
   .card {
     margin: 0;
+  }
+  .card .card-box {
     display: table;
   }
-  .card .card-thumb {
+  .card .card-box .card-thumb {
     display: table-cell;
     width: 50%;
     background-size: cover;
   }
-  .card .card-thumb img {
+  .card .card-box .card-thumb img {
     max-width: 100%;
   }
 }
@@ -3972,6 +3974,17 @@ form button[type=submit] {
   -o-transform: translate(0, -50%);
   transform: translate(0, -50%);
 }
+#hero .hero-content .hero-logo {
+  max-width: 280px;
+  display: block;
+  margin: 0 auto;
+  opacity: .6;
+}
+@media (min-width: 992px) {
+  #hero .hero-content .hero-logo {
+    max-width: 500px;
+  }
+}
 #hero .hero-scroll {
   position: absolute;
   z-index: 1;
@@ -4010,15 +4023,6 @@ form button[type=submit] {
   border: 0.1em solid #ffffff;
   border-top: none;
   border-left: none;
-}
-.is-home #hero .hero-image:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(39, 78, 124, 0.7);
 }
 .library {
   padding: 20px 0;
@@ -4376,9 +4380,6 @@ form button[type=submit] {
 .navbar.navbar-curso .navbar-brand {
   display: none;
 }
-.is-curso .navbar-nav > li a {
-  color: #274e7c;
-}
 .panel-library {
   background: #3366a3;
   margin: 10px;
@@ -4420,6 +4421,9 @@ form button[type=submit] {
 }
 .svg-data .svg-text b {
   display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.4em;
+  font-weight: 700;
 }
 .svg-data:last-of-type:nth-child(odd) {
   display: block;
@@ -4469,20 +4473,22 @@ form button[type=submit] {
   font-weight: 400;
   font-style: italic;
 }
-.video-intro {
-  margin: 10px;
+.tv-web {
   background: #3366a3;
+  margin: 10px;
   padding: 20px;
-  outline: 0.15em solid #FFF200;
-  outline-offset: -10px;
 }
 @media (min-width: 992px) {
-  .video-intro {
+  .tv-web {
     margin-left: auto;
     margin-right: auto;
   }
 }
-.video-intro .video-play {
+.tv-web.video {
+  outline: 0.15em solid #FFF200;
+  outline-offset: -10px;
+}
+.tv-web.video .video-play {
   max-width: 110px;
   margin: 30px auto;
   display: block;
@@ -4490,7 +4496,7 @@ form button[type=submit] {
   background: #1b3655;
   padding: 5px;
 }
-.video-intro .video-play svg {
+.tv-web.video .video-play svg {
   border: 0.1em solid #ffffff;
   border-radius: inherit;
   stroke-width: .1em;
@@ -4520,4 +4526,28 @@ body {
 }
 .highlighted {
   color: #FFF200;
+}
+.is-home #hero .hero-image:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(39, 78, 124, 0.7);
+}
+.is-cursos .navbar-nav > li a {
+  color: #274e7c;
+}
+.is-cursos #hero {
+  color: #274e7c;
+}
+.is-cursos #hero .hero-image:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(85, 85, 85, 0.4);
 }

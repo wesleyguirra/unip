@@ -38,7 +38,7 @@
 @import url("componentes/panels");
 @import url("componentes/svg-data");
 @import url("componentes/tag");
-@import url("componentes/video-intro");
+@import url("componentes/tv-web");
 
 
 body {
@@ -62,4 +62,45 @@ body {
 
 .highlighted {
     color: @unip-yellow;
+}
+
+.is-home {
+    #hero {
+        .hero-image {
+             &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: fade(@unip-primary, 70%);
+            }
+        }
+    }
+}
+
+.is-cursos {
+    .navbar-nav {
+        > li {
+            a {
+                color: @unip-primary;
+            }
+        }
+    }
+
+    #hero {
+        color: @unip-primary;
+        .hero-image {
+             &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: fade(@gray, 40%);
+            }
+        }
+    }
 }
