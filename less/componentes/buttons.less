@@ -1,0 +1,13 @@
+.btn {
+    border: .1em solid @unip-yellow;
+    border-radius: 0;
+    &.btn-primary {
+        background: transparent;
+        .transition(all; .2s; linear);
+        &:hover , &:focus {
+            border-color: transparent;
+            background: @unip-yellow;
+            color: @unip-primary;
+        }
+    }
+}

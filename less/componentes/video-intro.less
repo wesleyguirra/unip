@@ -1,0 +1,25 @@
+.video-intro {
+    margin: 10px;
+    background: lighten(@unip-primary, 10%);
+    padding: 20px;
+    outline: .15em solid @unip-yellow;
+    outline-offset: -10px;
+    @media (min-width: @screen-md) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .video-play {
+        max-width: 110px;
+        margin: 30px auto;
+        display: block;
+        border-radius: 100%;
+        background: darken(@unip-primary, 10%);
+        padding: 5px;
+        svg {
+            border: .1em solid @white;
+            border-radius: inherit;
+            stroke-width: .1em;
+            stroke: @unip-yellow;
+        }
+    }
+}

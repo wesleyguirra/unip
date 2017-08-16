@@ -1,0 +1,59 @@
+#hero {
+    position: relative;
+    min-height: 100vh;
+    // important necessario devido a background aplicado inline
+    .hero-image {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-size: cover !important;
+    }
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+        width: 100%;
+        .transform(@y: -50%);
+    }
+    .hero-scroll {
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        bottom: -30px;
+        background: @unip-primary;
+        width: 60px;
+        height: 60px;
+        border: .1em solid @unip-yellow;
+        .border-radius(100%);
+        .transform(@x:-50%; @y:0; @deg: 45deg);
+        .box-shadow(0px; 0px; 0px; 7px; @unip-primary);
+        &:after {
+            display: inline-block;
+            content: '';
+            height: 20px;
+            width: 20px;
+            margin-top: 16px;
+            margin-left: 16px; 
+            border: .1em solid @white;
+            border-top: none;
+            border-left: none;
+        }
+    }
+}
+
+.is-home {
+    #hero {
+        .hero-image {
+             &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: fade(@unip-primary, 70%);
+            }
+        }
+    }
+}

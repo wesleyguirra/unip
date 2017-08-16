@@ -1,0 +1,19 @@
+form {
+    max-width: 100%;
+    margin: auto;
+    input, button[type=submit] {
+        display: inline-block;
+        padding: 10px 15px;
+        border: none;
+    }
+
+    input:not([type=submit]) {
+        .font-style(@font-size: 1.2em);
+        color: lighten(@unip-primary, 10%);
+    }
+
+    button[type=submit] {
+        background-color: darken(@unip-primary, 10%);
+        height: 44px;
+    }
+}
