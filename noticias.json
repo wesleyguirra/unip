@@ -1,0 +1,52 @@
+[
+    {
+        "hero": false,
+        "categoria": "internacional",
+        "titulo": "Curso de Engenharia",
+        "resumo": "No dia 17 de maio, a coordenação do curso de Engenharia do Ciclo Básico do campus Sorocaba deu sequência ao projeto: Atividades de Engenheiro no Mercado de Trabalho. O objetivo é mostrar para os alunos do curso que of futuros engenheiros podem trabalhar em diversas áreas, inclusive na militar.",
+        "img": "https://static.pexels.com/photos/96448/pexels-photo-96448.jpeg",
+        "data": ""
+    },
+    {
+        "hero": true,
+        "categoria": "solidariedade",
+        "titulo": "Campus Assis promove campanha de doação de alimentos",
+        "resumo": null,
+        "img": "https://static.pexels.com/photos/101401/pexels-photo-101401.jpeg",
+        "data": [
+            {
+                "count": "800kg",
+                "label": "alimentos"
+            }
+        ]
+    },
+    {
+        "hero": false,
+        "categoria": "mercado de trabalho",
+        "titulo": "Veja porque a Unip é a preferida dos que contratam (RUF)",
+        "resumo": null,
+        "img": null,
+        "data": [
+            {
+                "count": "240mil",
+                "label": "alunos"
+            },
+            {
+                "count": "35",
+                "label": "campus"
+            },
+            {
+                "count": "800kg",
+                "label": "alimentos"
+            }
+        ]
+    },
+    {
+        "hero": false,
+        "categoria": "internacional",
+        "titulo": "Curso de Engenharia",
+        "resumo": "No dia 17 de maio, a coordenação do curso de Engenharia do Ciclo Básico do campus Sorocaba deu sequência ao projeto: Atividades de Engenheiro no Mercado de Trabalho. O objetivo é mostrar para os alunos do curso que of futuros engenheiros podem trabalhar em diversas áreas, inclusive na militar.",
+        "img": "https://static.pexels.com/photos/54374/pexels-photo-54374.jpeg",
+        "data": null
+    }
+]
