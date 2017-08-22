@@ -1,0 +1,13 @@
+.text-header {
+  padding-bottom: ((@line-height-computed / 2) - 1);
+  margin: (@line-height-computed * 2) 0 @line-height-computed;
+  text-align: center;
+  &:after {
+      content: '';
+      display: block;
+      width: 25%;
+      height: 2px;
+      margin: ((@line-height-computed / 2) - 1) auto 0 auto;
+      background: @unip-yellow;
+  }
+}

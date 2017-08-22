@@ -1,0 +1,13 @@
+.breadcrumb {
+    margin: 0;
+    background-color: @unip-primary;
+    > li {
+        a {
+            color: #fff;
+        }
+        + li:before {
+            content: '\003e';
+            color: @unip-yellow;
+        }
+    }
+}
