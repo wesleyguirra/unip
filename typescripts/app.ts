@@ -1,6 +1,7 @@
 import { listarNoticias } from './servicos/noticias'
 import { Noticia } from './model/noticia'
 import { carregarNoticias } from './views/noticia'
+import './componentes/menu'
 
 
 (function(){
